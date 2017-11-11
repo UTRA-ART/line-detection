@@ -35,7 +35,7 @@ Installing Python3
     $ sudo apt-get install python3
 
 #### Step 3: Installing pip3
-Pip is a package management system used to install and manage software packages written in Python. Pip3 is used to install packages for    python3
+Pip is a package management system used to install and manage software packages written in Python. Pip3 is used to install packages for python3
  
     $ sudo apt-get -y install python3-pip
  
@@ -72,12 +72,12 @@ If the above installation gives you errors then the following link points to a m
 https://stackoverflow.com/questions/37188623/ubuntu-how-to-install-opencv-for-python3
 
 _NOTE_: If you installed or tried to install ROS(Robotic Operating System), it is likely that you already have OpenCV installed but for Python 2.7+ The UTRA team requires you to use Python 3+. You might run into issues if you try to import cv2 from python 3 as the python path is edited to import from ROS dist. This is because of edits made to the bash file during the ROS installation.
-The workaround this problem would be open your bash file in vim or gedit edit. Your bash file will be located in /home/username/.bashrc
+The workaround to this problem would be open your bash file in vim or gedit edit. Your bash file will be located in /home/username/.bashrc
 
 
 **YOU SHOULD NOT MAKE ANY CHANGES TO YOUR BASH FILE OTHER THAN ONE SHOWN BELOW, MAKE SURE YOU KNOW EXACTLY WHAT YOU ARE DOING BEFORE YOU EDIT THE BASH FILE**
 
-Go to the above director and press Ctrl + H to show hidden files then open the bash file in an editor of your choice
+Go to the above directory and press Ctrl + H to show hidden files then open the bash file in an editor of your choice
 
 The remove the following line from the end of your bash file
 
