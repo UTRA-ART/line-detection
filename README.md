@@ -14,7 +14,7 @@ Note: This installation is only for Linux operating systems. It is recommended t
 
 #### Step 1: Update any pre-installed packages
 
-    $ sudo apt-get update'
+    $ sudo apt-get update
  
     $ sudo apt-get upgrade
  
