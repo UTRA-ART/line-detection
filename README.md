@@ -46,8 +46,20 @@ Run Python 3 on terminal
 $ python3
 and try importing the OpenCV library
 >> import cv2
+If you get no errors it means that you have successfully installed OpenCV
 >> import numpy as np
+If you get no errors it means that you have successfully installed numpy
 >> from matplotlib import pyplot as plt
-If you get no errors it means that you have successfully installed OpenCV, numpy and matplotlib on your Linux machine
+If you get no errors it means that you have successfully installed matplotlib
 
 If the above installation gives you errors then the following link points to a more rigorous installation of OpenCV
+https://stackoverflow.com/questions/37188623/ubuntu-how-to-install-opencv-for-python3
+
+Note: If you installed or tried to install ROS(Robotic Operating System), it is likely that you already have OpenCV installed but for Python 2.7+ The UTRA team requires you to use Python 3+. You might run into issues if you try to import cv2 from python 3 as the python path is edited to import from ROS dist. This is because of edits made to the bash file during the ROS installation.
+The workaround this problem would be open your bash file in vim or gedit edit. Your bash file will be located in
+/home/username/.bashrc
+Go to the above director and press Ctrl + H to show hidden files
+then open the bash file in an editor of your choice
+**YOU SHOULD NOT MAKE ANY CHANGES TO YOUR BASH FILE OTHER THAN ONE SHOWN BELOW, MAKE SURE YOU KNOW EXACTLY WHAT YOU ARE DOING BEFORE YOU EDIT THE BASH FILE**
+The remove the following line from the end of your bash file
+/opt/ros/kinetic/lib/python2.7/dist-packages
