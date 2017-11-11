@@ -46,10 +46,14 @@ Run Python 3 on terminal
 $ python3
 and try importing the OpenCV library
 >> import cv2
+
 If you get no errors it means that you have successfully installed OpenCV
 >> import numpy as np
+
 If you get no errors it means that you have successfully installed numpy
+
 >> from matplotlib import pyplot as plt
+
 If you get no errors it means that you have successfully installed matplotlib
 
 If the above installation gives you errors then the following link points to a more rigorous installation of OpenCV
