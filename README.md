@@ -3,13 +3,13 @@ UTRA ART 2017 Vision white line detection project
 
 
 
-##Desciption:
+## Desciption:
 The aim of this project is to detect white lines on images.
 
 
-##Installation: 
+## Installation: 
 
-###OpenCV installation 
+### OpenCV installation 
 Note: This installation is only for Linux operating systems. It is recommended that you have Ubuntu or Mint on virtual machine or dual booted into your PC
 
 Step 1: Update any pre-installed packages
