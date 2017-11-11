@@ -79,6 +79,6 @@ The workaround to this problem would be open your bash file in vim or gedit edit
 
 Go to the above directory and press Ctrl + H to show hidden files then open the bash file in an editor of your choice
 
-The remove the following line from the end of your bash file
+Then remove the following line from the end of your bash file
 
 /opt/ros/kinetic/lib/python2.7/dist-packages
