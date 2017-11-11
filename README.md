@@ -14,19 +14,19 @@ Note: This installation is only for Linux operating systems. It is recommended t
 
 #### Step 1: Update any pre-installed packages
 
-$ sudo apt-get update
+    $ sudo apt-get update'
  
-$ sudo apt-get upgrade
+    $ sudo apt-get upgrade
  
 #### Step 2: Install Python 3
  
 Check if you have Python already installed by checking the version
  
-$ python --version
+    $ python --version
  
 or
  
-$ python3 --version
+    $ python3 --version
  
 It is recommended that you have Python 3.4+ because most of the code is written in Python 3
  
