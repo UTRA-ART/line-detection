@@ -87,6 +87,9 @@ Then remove the following line from the end of your bash file
 ### Step1 : Detecting the white colour inside the image
 Using gimp image editor's colour picker tool the max and min BGR values for the a given colour in a test image can be calculated. Once they are calculated they are passed into converter.py as system arguments to obtain the max and min HSV values as arrays.
 These values are then to be passed into the lower range and upper range arrays in the image.py file and the test image's name should be changed as necessary in the converter.
-
+Test image:
 ![alt text](https://github.com/UTRA-CV/line-detection/blob/master/colourdetector/img_3.jpg "testimage")
+After colour detection:
+![alt text](https://github.com/UTRA-CV/line-detection/blob/master/colourdetector/mask.jpg "output")
+
 
