@@ -83,46 +83,48 @@ def draw_lines(img, lines, color=[255, 0, 0], thickness=2):
     
 
 
+if __name__ == '__main__':
 
-image = cv2.imread("img_3.jpg")
-gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-lower_yellow = np.array([20, 100, 100], dtype = "uint8")
-upper_yellow = np.array([30, 255, 255], dtype="uint8")
-img_hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
-mask_yellow = cv2.inRange(img_hsv, lower_yellow, upper_yellow)
-mask_white = cv2.inRange(gray_image, 200, 255)
-mask_yw = cv2.bitwise_or(mask_white, mask_yellow)
-mask_yw_image = cv2.bitwise_and(gray_image, mask_yw)
-
-
-#Gaussian Blur
-kernel_size = 5
-gauss_gray = cv2.GaussianBlur(mask_yw_image,(5,5), 0, 0)
-low_threshold = 50
-high_threshold = 150
-canny_edges = cv2.Canny(gauss_gray,low_threshold,high_threshold)
+    image = cv2.imread("img_3.jpg")
+    gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    lower_yellow = np.array([20, 100, 100], dtype = "uint8")
+    upper_yellow = np.array([30, 255, 255], dtype="uint8")
+    img_hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+    mask_yellow = cv2.inRange(img_hsv, lower_yellow, upper_yellow)
+    mask_white = cv2.inRange(gray_image, 200, 255)
+    mask_yw = cv2.bitwise_or(mask_white, mask_yellow)
+    mask_yw_image = cv2.bitwise_and(gray_image, mask_yw)
 
 
-#Region of interest selection
-imshape = image.shape
-lower_left = [imshape[1]/9,imshape[0]]
-lower_right = [imshape[1]-imshape[1]/9,imshape[0]]
-top_left = [imshape[1]/2-imshape[1]/8,imshape[0]/2+imshape[0]/10]
-top_right = [imshape[1]/2+imshape[1]/8,imshape[0]/2+imshape[0]/10]
-vertices = [np.array([lower_left,top_left,top_right,lower_right],dtype=np.int32)]
-roi_image = region_of_interest(canny_edges, vertices)
+    #Gaussian Blur
+    kernel_size = 5
+    gauss_gray = cv2.GaussianBlur(mask_yw_image,(5,5), 0, 0)
+    low_threshold = 70
+    high_threshold = 150
+    canny_edges = cv2.Canny(gauss_gray,low_threshold,high_threshold)
 
 
-rho = 4
-theta = np.pi/180
-#threshold is minimum number of intersections in a grid for candidate line to go to output
-threshold = 30
-min_line_len = 100
-max_line_gap = 180
-#my hough values started closer to the values in the quiz, but got bumped up considerably for the challenge video
+    #Region of interest selection
+    imshape = image.shape
+    lower_left = [imshape[1]/9,imshape[0]]
+    lower_right = [imshape[1]-imshape[1]/9,imshape[0]]
+    top_left = [imshape[1]/2-imshape[1]/8,imshape[0]/2+imshape[0]/10]
+    top_right = [imshape[1]/2+imshape[1]/8,imshape[0]/2+imshape[0]/10]
+    vertices = [np.array([lower_left,top_left,top_right,lower_right],dtype=np.int32)]
+    roi_image = region_of_interest(canny_edges, vertices)
 
-line_image = hough_lines(, rho, theta, threshold, min_line_len, max_line_gap)
-result = weighted_img(line_image, image, α=0.8, β=1., λ=0.)
 
-cv2.imshow('image', result)
-cv2.waitKey(0)
+    rho = 4
+    theta = np.pi/180
+    #threshold is minimum number of intersections in a grid for candidate line to go to output
+    threshold = 30
+    min_line_len = 100
+    max_line_gap = 180
+    #my hough values started closer to the values in the quiz, but got bumped up considerably for the challenge video
+
+    line_image = hough_lines(canny_edges, rho, theta, threshold, min_line_len, max_line_gap)
+    result = weighted_img(line_image, image, α=0.8, β=1., λ=0.)
+
+    cv2.imshow('image', line_image)
+    cv2.waitKey(0)
+    cv2.imshow()
