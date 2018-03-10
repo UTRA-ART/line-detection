@@ -123,7 +123,7 @@ if __name__ == '__main__':
     #my hough values started closer to the values in the quiz, but got bumped up considerably for the challenge video
 
     line_image = hough_lines(canny_edges, rho, theta, threshold, min_line_len, max_line_gap)
-    result = weighted_img(line_image, image, α=0.8, β=1., λ=0.)
+    #result = weighted_img(line_image, image, α=0.8, β=1., λ=0.)
 
     cv2.imshow('image', line_image)
     cv2.waitKey(0)
