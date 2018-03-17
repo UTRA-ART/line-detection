@@ -85,13 +85,13 @@ def draw_lines(img, lines, color=[255, 0, 0], thickness=2):
 
 if __name__ == '__main__':
 
-    image = cv2.imread("img_3.jpg")
+    image = cv2.imread("test.jpg")
     gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     lower_yellow = np.array([20, 100, 100], dtype = "uint8")
     upper_yellow = np.array([30, 255, 255], dtype="uint8")
     img_hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
     mask_yellow = cv2.inRange(img_hsv, lower_yellow, upper_yellow)
-    mask_white = cv2.inRange(gray_image, 200, 255)
+    mask_white = cv2.inRange(gray_image, 240, 255)
     mask_yw = cv2.bitwise_or(mask_white, mask_yellow)
     mask_yw_image = cv2.bitwise_and(gray_image, mask_yw)
 
@@ -99,8 +99,8 @@ if __name__ == '__main__':
     #Gaussian Blur
     kernel_size = 5
     gauss_gray = cv2.GaussianBlur(mask_yw_image,(5,5), 0, 0)
-    low_threshold = 70
-    high_threshold = 150
+    low_threshold = 100
+    high_threshold = 200
     canny_edges = cv2.Canny(gauss_gray,low_threshold,high_threshold)
 
 
